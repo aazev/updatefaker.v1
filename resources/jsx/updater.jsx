@@ -14,7 +14,7 @@ class Updater extends Component{
 	};
 
 	static defaultProps = {
-		maxClicks: 1000,
+		maxClicks: 25,
 	};
 	constructor(props) {
 		super(props);
