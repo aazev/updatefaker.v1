@@ -30,6 +30,10 @@ class Updater extends Component{
 		this._ref.current.closest('.wrapper').classList.add(this.getOs());
 	}
 
+	componentDidUpdate(prevProps, prevState) {
+		this._ref.current.closest('.wrapper').classList.add(this.getOs());
+	}
+
 	getOs(){
 		let { forcePlatform } = this.props
 		if(['windows', 'macos', 'linux'].includes(forcePlatform))
@@ -40,7 +44,6 @@ class Updater extends Component{
 			return 'macos';
 		if(platform.linux)
 			return 'macos';
-
 	}
 
 	handleClick(){
