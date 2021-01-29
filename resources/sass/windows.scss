@@ -1,0 +1,115 @@
+@import "default";
+@import "windows/font";
+
+$textColour: #fff;
+$accentColour: #0078d7;
+
+.wrapper.windows {
+	$fontFamily: SegoeUI, Arial, sans-serif;
+	color: $textColour;
+	background-image: linear-gradient(5deg, lighten($accentColour,10%) 0%, $accentColour 100%);
+
+	.upgradeContainer {
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		font-family: $fontFamily;
+		font-weight:200;
+		font-size: 1.25rem;
+
+		.logo {
+			&.windows {
+				color: white;
+				font-size: 120px;
+			}
+		}
+
+		.loader {
+			width: 50px;
+			height: 50px;
+			transform: scale(1);
+
+			.circle {
+				transform-origin: 50% 50%;
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				opacity: 0;
+				transform: rotate(225deg);
+				animation-iteration-count: infinite;
+				animation-name: rotate;
+				animation-duration: 4.8s;
+
+				&:after {
+					content: '';
+					position: absolute;
+					width: 6px;
+					height: 6px;
+					border-radius: 50%;
+					background: #fff;
+					border: 1px white solid;
+					box-shadow: 0 0 1px $accentColour;
+				}
+
+				$interval: 0ms;
+
+				@for $i from 2 through 6 {
+					$interval: $interval + 240ms;
+					&:nth-child(#{$i}) {
+						animation-delay: $interval;
+					}
+				}
+			}
+
+			.bg {
+				position: absolute;
+				width: 70px;
+				height: 70px;
+				margin-left: -16px;
+				margin-top: -16px;
+				border-radius: 13px;
+				background-color: transparent;
+			}
+		}
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(225deg);
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	7% {
+		transform: rotate(345deg);
+		animation-timing-function: linear;
+	}
+	30% {
+		transform: rotate(455deg);
+		animation-timing-function: ease-in-out;
+	}
+	39% {
+		transform: rotate(690deg);
+		animation-timing-function: linear;
+	}
+	70% {
+		transform: rotate(815deg);
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	75% {
+		transform: rotate(945deg);
+		animation-timing-function: ease-out;
+	}
+	76% {
+		transform: rotate(945deg);
+		opacity: 0;
+	}
+	100% {
+		transform: rotate(945deg);
+		opacity: 0;
+	}
+}

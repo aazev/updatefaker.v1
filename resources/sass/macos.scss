@@ -1,0 +1,48 @@
+@import "default";
+@import "macos/font";
+
+$textColour: #fff;
+$accentColour: #111;
+
+.wrapper.macos {
+	$fontFamily: Helvetica, Arial, sans-serif;
+	color: $textColour;
+	background-color: $accentColour;
+
+	.upgradeContainer {
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		font-family: $fontFamily;
+		font-weight:200;
+		font-size: 1.25rem;
+
+		.logo {
+			&.apple {
+				color: white;
+				font-size: 120px;
+			}
+		}
+	}
+
+	.progressbar{
+		min-height: 0.2rem;
+		position: relative;
+		background-color: lighten($accentColour, 5%);
+		width: 300px;
+		--percent: 0;
+		&::after{
+			transition: width 150ms ease-out;
+			content: '';
+			background-color: $textColour;
+			position: absolute;
+			top:0px;
+			bottom:0px;
+			left:0px;
+			width: calc(var(--percent) * 1%);
+		}
+	}
+}

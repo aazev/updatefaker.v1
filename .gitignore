@@ -1,0 +1,4 @@
+/public/*
+!/public/readme.md
+/node_modules
+.env
