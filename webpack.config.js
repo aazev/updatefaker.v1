@@ -126,12 +126,13 @@ module.exports = (env) => {
 			new webpack.DefinePlugin(EnvKeys),
 			new CleanWebpackPlugin(),
 			new HtmlWebpackPlugin({
-			  title: process.env.APP_NAME,
-			  filename: '../index.html',
-			  template: path.resolve('resources/jsx/index.ejs'),
-			  publicPath: '/js',
-			  cache: false,
-			  minify: false
+				inject:'body',
+				title: process.env.APP_NAME,
+				filename: '../index.html',
+				template: path.resolve('resources/jsx/index.ejs'),
+				publicPath: '/js',
+				cache: false,
+				minify: false
 			})
 		]
 	}
