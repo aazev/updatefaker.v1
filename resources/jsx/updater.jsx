@@ -30,10 +30,6 @@ class Updater extends Component{
 		this._ref.current.closest('.wrapper').classList.add(this.getOs());
 	}
 
-	componentDidUpdate(prevProps, prevState) {
-		this._ref.current.closest('.wrapper').classList.add(this.getOs());
-	}
-
 	getOs(){
 		let { forcePlatform } = this.props
 		if(['windows', 'macos', 'linux'].includes(forcePlatform))
@@ -48,7 +44,7 @@ class Updater extends Component{
 
 	handleClick(){
 		if(!document.fullscreenElement){
-			this._ref.current.requestFullscreen();
+			document.querySelector('body').requestFullscreen();
 		} else {
 			this.setState(prevState=>{
 				let { clicks } = prevState;
