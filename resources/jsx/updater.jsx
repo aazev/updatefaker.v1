@@ -28,6 +28,7 @@ class Updater extends Component{
 
 	componentDidMount() {
 		this._ref.current.closest('.wrapper').classList.add(this.getOs());
+		this._ref.current.closest('.wrapper').addEventListener('contextmenu', e=>e.preventDefault());
 	}
 
 	getOs(){
